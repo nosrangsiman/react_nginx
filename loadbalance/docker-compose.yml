@@ -1,0 +1,34 @@
+version: '3.9'
+services:
+  react1:
+    image: react
+    container_name: react1
+    restart: always
+    # ports:
+    #   - "8081:3000"
+    links:
+      - nginx
+  react2:
+    image: react
+    container_name: react2
+    restart: always
+    # ports:
+    #   - "8082:3000"
+    links:
+      - nginx
+  react3:
+    image: react
+    container_name: react3
+    restart: always
+    # ports:
+    #   - "8083:3000"
+    links:
+      - nginx
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    restart:  always
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d
